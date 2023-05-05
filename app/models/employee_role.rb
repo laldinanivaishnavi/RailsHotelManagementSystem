@@ -1,0 +1,3 @@
+class EmployeeRole < ApplicationRecord
+    
+end

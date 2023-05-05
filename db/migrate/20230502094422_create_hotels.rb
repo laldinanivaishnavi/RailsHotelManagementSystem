@@ -7,7 +7,7 @@ class CreateHotels < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :country
       t.integer :totalrooms
-      t.numeric :phonenumber
+      t.string :phonenumber
       t.float :starrating
 
       t.timestamps

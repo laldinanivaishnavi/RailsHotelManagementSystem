@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estarrival: 2023-05-04 11:40:07
+  estdeparture: 2023-05-04 11:40:07
+  checkin: 2023-05-04 11:40:07
+  checkout: 2023-05-04 11:40:07
+  numofadults: 1
+  numofchild: 1
+  specialconcern: MyText
+  bookingstatus: MyText
+  hotel: one
+  guest: one
+  room: one
+  user: one
+
+two:
+  estarrival: 2023-05-04 11:40:07
+  estdeparture: 2023-05-04 11:40:07
+  checkin: 2023-05-04 11:40:07
+  checkout: 2023-05-04 11:40:07
+  numofadults: 1
+  numofchild: 1
+  specialconcern: MyText
+  bookingstatus: MyText
+  hotel: two
+  guest: two
+  room: two
+  user: two
