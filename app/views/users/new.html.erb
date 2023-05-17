@@ -1,0 +1,9 @@
+<h1>Create New User</h1>
+<%= form_for @user do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :name,class: "shortInput" %><br/>
+
+  <%= form.label :password %>
+  <%= form.password_field :password,class: "shortInput" %><br/>
+  <%= form.submit "Create Account",class: "button createAccount"%>
+<% end %>

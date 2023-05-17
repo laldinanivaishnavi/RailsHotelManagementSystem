@@ -7,4 +7,7 @@ class Booking < ApplicationRecord
   has_one :bill
   has_one :feedback
   validates :estarrival,:estdeparture,:checkin,:checkout,:numofadults,:numofchild,:bookingstatus,presence: true
+  validates :estarrival, comparison: { greater_than: :estdeparture }
+  validates :checkin, comparison: { greater_than: :checkout }
+  validates :numofadults,:numofchild,numericality: { only_integer: true }
 end
