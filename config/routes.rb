@@ -1,4 +1,6 @@
-Rails.application.routes.draw do
-  get "sign_up",to: "registrations#new"
-  post "sign_up",to: "registrations#create"
+Rails.application.routes.draw do 
+  # get 'users/show'
+  # get 'users/new'
+  # post 'users/create'
+  resources :users
 end

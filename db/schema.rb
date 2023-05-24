@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_10_122634) do
+ActiveRecord::Schema.define(version: 2023_05_23_080714) do
 
   create_table "bills", force: :cascade do |t|
     t.integer "room_charge"
@@ -147,10 +147,11 @@ ActiveRecord::Schema.define(version: 2023_05_10_122634) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
   end
 
   add_foreign_key "bills", "bookings"

@@ -1,9 +1,25 @@
-<h1>Create New User</h1>
-<%= form_for @user do |form| %>
-  <%= form.label :username %>
-  <%= form.text_field :name,class: "shortInput" %><br/>
+<%= stylesheet_link_tag "custom" %>
+<% provide(:title, 'Sign up') %>
+<h1 class="text-center">Sign up</h1>
 
-  <%= form.label :password %>
-  <%= form.password_field :password,class: "shortInput" %><br/>
-  <%= form.submit "Create Account",class: "button createAccount"%>
-<% end %>
+<div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username ,class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email ,class: 'form-control'%>
+
+      <%= f.label :password %>
+      <%= f.password_field :password ,class: 'form-control'%>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
