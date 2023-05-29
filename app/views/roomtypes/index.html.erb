@@ -1,0 +1,15 @@
+<header class="header">
+<h1>List Of Available Roomtypes</h1>
+<p class="first-p">
+  <%= link_to "Log out", logout_path, method: :delete %>
+</p>
+</header>
+<ul>
+  <% @roomtypes.each do |roomtype|%>
+    <li>
+      <%= roomtype.description %>
+      <%= link_to "View",roomtypes_path(roomtype.id)%>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Back", listhotels_path%>

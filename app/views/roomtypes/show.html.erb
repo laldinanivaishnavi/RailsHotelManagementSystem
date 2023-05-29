@@ -1,0 +1,13 @@
+<header class="header">
+<h1>Welcome to <%=@roomtype.description%> </h1>
+<p class="first-p">
+  <%= link_to "Log out", logout_path, method: :delete %>
+</p>
+</header>
+<h2>Details are as below:</h2>
+<p>Image: <%=@roomtype.image%></p>
+<p>Description: <%=@roomtype.description%></p>
+<p>Facilities: <%=@roomtype.facilities%></p>
+
+<%= link_to "Back", listroomtypes_path%>
+<%= link_to "Proceed", listroomtypes_path%>

@@ -1,15 +1,14 @@
 <%= stylesheet_link_tag "custom" %>
-<% provide(:title, @user.username) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.username %>
-        <p class="text-right">
-        <%= link_to "Log out", logout_path, method: :delete %>
-        </p>
-      </h1>
-    </section>
-  </aside>
-</div>
+<header class="header">
+<h1 class="first-h1">Welcome to the portal <%= @user.username %> </h1>
+<p class="first-p">
+  <%= link_to "Log out", logout_path, method: :delete %>
+</p>
+</header>
+<h2 class="first-h2">You are just few clicks away to get a 5 star experience with us!</h2>
+<p class="second-p">Let's get started</p>
+<ul>
+<li><%= link_to "List of Hotels", listhotels_path%></li>
+<li><a href="search.html">Search Hotel By Name</a></li>
+<li><a href="select.html">Select Hotel By Id</a></li>
+</ul>

@@ -1,0 +1,17 @@
+<header class="header">
+<h1>Welcome to <%=@hotel.name%> </h1>
+<p class="first-p">
+  <%= link_to "Log out", logout_path, method: :delete %>
+</p>
+</header>
+<h2>Details are as below:</h2>
+<p>Name: <%=@hotel.name%></p>
+<p>Address: <%=@hotel.address%></p>
+<p>Postal Code: <%=@hotel.postalcode%></p>
+<p>City: <%=@hotel.city%></p>
+<p>Country: <%=@hotel.country%></p>
+<p>Phone Number: <%=@hotel.phonenumber%></p>
+<p>Rating: <%=@hotel.starrating%></p>
+
+<%= link_to "Back", listhotels_path%>
+<%= link_to "Proceed", listroomtypes_path%>

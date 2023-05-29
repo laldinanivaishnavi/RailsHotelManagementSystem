@@ -55,7 +55,26 @@ input, textarea, select, .uneditable-input {
       margin: 0 0 30px 0;
     }
   }
-  
-  
 
+  .header{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  }
+
+  .first-h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .first-h2{
+    color: blue;
+    margin-top: 1em;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .second-p{
+    color: green;
+    margin-top: 1em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
  
