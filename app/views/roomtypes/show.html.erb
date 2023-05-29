@@ -10,4 +10,4 @@
 <p>Facilities: <%=@roomtype.facilities%></p>
 
 <%= link_to "Back", listroomtypes_path%>
-<%= link_to "Proceed", listroomtypes_path%>
+<%= link_to "select & Proceed", allotroom_path(@selected_hotel,roomtype: @roomtype)%>

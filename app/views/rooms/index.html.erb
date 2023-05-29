@@ -1,0 +1,18 @@
+<% if @allocated_room.present? %>
+<h2>Your Room Details are as below:</h2>
+<p>Occupancy: <%=@allocated_room.occupancy%></p>
+<p>Status: <%=@allocated_room.status%></p>
+<p>Facilities: <%=@allocated_room.hotel_id%></p>
+<%= link_to "Add Guest Details", addguest_path%><br>
+<%= link_to "Go to Home Page", usersshow_path(@user.id)%>
+<% else %>
+<header class="header">
+<p>Sorry for the inconvenience! No Rooms for the selected type, Please choose another or try again later!!</p>
+<p class="first-p">
+  <%= link_to "Log out", logout_path, method: :delete %>
+</p>
+</header>
+<%= link_to "Try Again", listhotels_path%>
+<br>
+<%= link_to "Go to Home Page", usersshow_path(@user.id)%>
+<% end %>

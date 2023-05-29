@@ -12,6 +12,5 @@
 <p>Country: <%=@hotel.country%></p>
 <p>Phone Number: <%=@hotel.phonenumber%></p>
 <p>Rating: <%=@hotel.starrating%></p>
-
 <%= link_to "Back", listhotels_path%>
-<%= link_to "Proceed", listroomtypes_path%>
+<%= link_to "Select & Proceed", listroomtypes_path(hotel: @hotel)%>
