@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_23_080714) do
+ActiveRecord::Schema.define(version: 2023_05_30_112216) do
 
   create_table "bills", force: :cascade do |t|
     t.integer "room_charge"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2023_05_23_080714) do
     t.integer "numofadults"
     t.integer "numofchild"
     t.text "specialconcern"
-    t.text "bookingstatus"
+    t.string "bookingstatus", default: "pending"
     t.integer "hotel_id", null: false
     t.integer "room_id", null: false
     t.integer "user_id", null: false

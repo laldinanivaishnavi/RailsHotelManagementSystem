@@ -3,7 +3,7 @@
 <p>Occupancy: <%=@allocated_room.occupancy%></p>
 <p>Status: <%=@allocated_room.status%></p>
 <p>Facilities: <%=@allocated_room.hotel_id%></p>
-<%= link_to "Add Guest Details", addguest_path%><br>
+<%= link_to "Proceed for Booking", addguestandbooking_path(hotel_id: @allocated_room.hotel_id,room_id: @allocated_room.id)%><br>
 <%= link_to "Go to Home Page", usersshow_path(@user.id)%>
 <% else %>
 <header class="header">

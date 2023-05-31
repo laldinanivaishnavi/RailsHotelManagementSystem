@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <%= form_for @booking ,url: bookings_path do |f| %>
+      <fieldset>
+      <%= render 'shared/err_msg' %>
+
+      <%= f.label :estarrival %>
+      <%= f.datetime_local_field :estarrival ,class: 'form-control' %>
+
+      <%= f.label :estdeparture %>
+      <%= f.datetime_local_field :estdeparture ,class: 'form-control'%>
+
+      <%= f.label :checkin %>
+      <%= f.date_field :checkin ,class: 'form-control'%>
+
+      <%= f.label :checkout%>
+      <%= f.date_field :checkout, class: 'form-control' %>
+      
+      <%= f.label :numofadults%>
+      <%= f.number_field :numofadults, in: 1..100, class: 'form-control' %>
+
+      <%= f.label :numofchild%>
+      <%= f.number_field :numofchild, in: 1..100, class: 'form-control' %>
+
+      <%= f.label :specialconcern%>
+      <%= f.text_field :specialconcern , class: 'form-control' %>
+
+      <div class="field">
+      <%= f.fields_for :guests do |guest_fields|%>
+          <div class ="nested-fields">
+             <%= guest_fields.label :name%>
+             <%= guest_fields.text_field :name%>
+
+             <%= guest_fields.label :age%>
+             <%= guest_fields.number_field :age,in: 1..100%>
+
+             <%= guest_fields.label :gender%>
+             <%= guest_fields.radio_button :gender,"male"%>
+             <%= guest_fields.label :gender_male ,"Male" %>
+             <%= guest_fields.radio_button :gender,"female"%>
+             <%= guest_fields.label :gender_female ,"Female" %>
+
+             <%= guest_fields.label :phonenumber%>
+             <%= guest_fields.telephone_field :phonenumber%>
+             
+             <%= guest_fields.label :aadharnumber%>
+             <%= guest_fields.file_field :aadharnumber%>
+          </div>
+      <%end%>
+      <div class="links">
+      <%= link_to_add_association 'Add guest' ,f,:guests %>
+      </div>
+      </div>
+      </fieldset>
+      <div class="actions">
+      <%= f.submit "Submit", class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
