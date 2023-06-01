@@ -15,8 +15,12 @@
     <%= f.telephone_field :phonenumber%>
                             
     <%= f.label :aadharnumber%>
-    <%= f.file_field :aadharnumber%>
+    <%= f.text_field :aadharnumber%>
 
+    <%= f.hidden_field :hotel_id,value: @booking.hotel_id%>
+    <%= f.hidden_field :room_id,value: @booking.room_id%>
+    <%= f.hidden_field :booking_id,value: @booking.id%>
     <%= link_to_remove_association 'Remove Guest' ,f %>
+    
 </div>
                            
