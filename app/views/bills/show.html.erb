@@ -1,0 +1,12 @@
+<h1>Bill is generated with Id- <%=@bill.id %></h1>
+<p>Room Charge: <%=@bill.room_charge%></p>
+<p>Room Service Charge: <%=@bill.roomservice_charge%></p>
+<p>Restaurant Charge: <%=@bill.restaurant_charge%></p>
+<p>Bar Charge: <%=@bill.bar_charge%></p>
+<p>Miscellaneous Charge: <%=@bill.misc_charge%></p>
+<p>Late Checkout(in case): <%=@bill.iflatecheckout_charge%></p>
+<p>Total Charge: <%=@bill.total_charge%></p>
+<p>Payment date:<%=@bill.payment_date%></p>
+<p>Payment mode:<%=@bill.payment_mode%></p>
+<h2>Please Pay-<%=@bill.total_charge%></h2>
+<%= link_to "Pay Now",genbills_path(id: @bill.id)%>

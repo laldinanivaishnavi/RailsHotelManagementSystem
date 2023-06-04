@@ -1,7 +1,6 @@
 <div class="row">
   <div class="mx-auto col-10 col-md-8 col-lg-6">
     <%= form_for @booking ,url: addbookings_path do |f| %>
-      <fieldset>
       <%= render 'shared/err_msg' %>
 
       <%= f.label :estarrival %>
@@ -20,7 +19,7 @@
       <%= f.number_field :numofadults, in: 1..100, class: 'form-control' %>
 
       <%= f.label :numofchild%>
-      <%= f.number_field :numofchild, in: 1..100, class: 'form-control' %>
+      <%= f.number_field :numofchild, in: 0..100, class: 'form-control' %>
 
       <%= f.label :specialconcern%>
       <%= f.text_field :specialconcern , class: 'form-control' %>
@@ -31,8 +30,6 @@
       <%= hidden_field_tag :room_id, @booking.room_id%>
       <%= hidden_field_tag :hotel_id, @booking.hotel_id%>
       <%= hidden_field_tag :user_id, current_user.id%>
-      
-
 
       <div class="field">
       <%= f.fields_for :guests do |guest_fields|%>
@@ -64,7 +61,7 @@
       <%= link_to_add_association 'Add guest' ,f,:guests %>
       </div>
       </div>
-      </fieldset>
+      
       <div class="actions">
       <%= f.submit "Submit", class: "btn btn-primary"%>
       </div>
@@ -72,7 +69,7 @@
   </div>
 </div>
 
-<script>
+<%# <script>
   document.addEventListener('DOMContentLoaded', () => {
     const bookingIdField = document.querySelector('.booking-id-field');
     if (bookingIdField) {
@@ -83,4 +80,4 @@
       });
     }
   });
-</script>
+</script> %>

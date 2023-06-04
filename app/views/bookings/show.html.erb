@@ -13,3 +13,5 @@
   <p><strong>Name:</strong> <%= guest.name %></p>
   <p><strong>Phone Number:</strong> <%= guest.phonenumber %></p>
 <%end%>
+
+<%= link_to "Payment",new_booking_bill_path(booking_id: @booking.id) %>

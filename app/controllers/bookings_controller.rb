@@ -22,19 +22,11 @@ class BookingsController < ApplicationController
       @booking.room_id = params[:room_id]
       @booking.user_id = params[:user_id]
       if @booking.save
-        # Assign the booking_id to each guest
         params[:booking][:guests_attributes].each do |_, guest_attributes|
-          #guest_attributes[:booking_id] = @booking.id
           guest_attributes[:hotel_id]=params[:hotel_id]
           guest_attributes[:room_id]=params[:room_id]
-          ##guest=@booking.guests.build(guest_attributes)
-          ##guest.hotel_id=params[:hotel_id]
-          #guest.room_id=params[:room_id]
-          #guest.booking_id=@booking.id
-          #guest.save
         end
         flash[:success] = "Booking is done!"
-        #booking_id = @booking.id
         redirect_to @booking
       else
         render 'new'

@@ -1,0 +1,37 @@
+<h1>Choose your payment mode:</h1>
+<%= form_for @bill, url: create_booking_bill_path(booking_id: params[:booking_id]) do |f| %>
+<%= csrf_meta_tags %>
+  <div class="field">
+    <%= f.label :payment_mode, "Payment Mode" %>
+    <%= f.select :payment_mode, options_for_select(["cash", "card"]) %>
+  </div>
+  <% if @bill.payment_mode == "card" %>
+    <div class="field">
+      <%= f.label :creditcard_number, "Credit Card Number" %>
+      <%= f.text_field :creditcard_number %>
+    </div>
+    <div class="field">
+      <%= f.label :creditcard_expiry, "Credit Card Expiry" %>
+      <%= f.date_select :creditcard_expiry %>
+    </div>
+  <% elsif @bill.payment_mode=="cash" %>
+    <%= f.label :creditcard_number%>
+    <%= f.text_field :creditcard_number,value: "NA", class: 'form-control' ,readonly: true %>
+    
+    <%= f.label :creditcard_expiry%>
+    <%= f.text_field :creditcard_expiry,value: "NA" , class: 'form-control' ,readonly: true %>
+  <% end %>
+  <%= f.hidden_field :room_charge,value: @bill.room_charge%>
+  <%= f.hidden_field :roomservice_charge,value: @bill.roomservice_charge%>
+  <%= f.hidden_field :restaurant_charge,value: @bill.restaurant_charge%>
+  <%= f.hidden_field :bar_charge,value: @bill.bar_charge%>
+  <%= f.hidden_field :misc_charge,value: @bill.misc_charge%>
+  <%= f.hidden_field :iflatecheckout_charge,value: @bill.iflatecheckout_charge%>
+  <%= f.hidden_field :total_charge,value: @bill.total_charge%>
+  <%= f.hidden_field :payment_date,value: DateTime.now%>
+  <%= f.hidden_field :transaction_id,value: @bill.transaction_id%>
+  <%= f.hidden_field :transaction_status,value: @bill.transaction_status%>
+  <%= f.hidden_field :booking_id,value: @bill.booking_id%>
+  <%= f.submit "Submit" %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+<% end %>
