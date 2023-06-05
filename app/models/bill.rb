@@ -6,7 +6,7 @@ class Bill < ApplicationRecord
   before_create :calculate_charges,:generate_transaction_id,:set_default_transaction_status
   
   private
-  def calculate_charges()
+  def calculate_charges(booking)
     puts "@booking #{booking.inspect}"
     puts "checkin #{booking.checkin}"
     check_in_date=booking.checkin.to_date

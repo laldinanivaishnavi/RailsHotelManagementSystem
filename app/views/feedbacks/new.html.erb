@@ -1,0 +1,23 @@
+<h1>Help Us Create a Better Experience !!</h1>
+<div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <%= form_for @feedback do |f| %>
+      <%#= render 'shared/error' %>
+      <p>Please Enter The Booking Id:<p>
+      <%= f.label :booking_id,"Booking Id"%>
+      <%= f.select :booking_id,options_for_select(1..100),prompt: "Select Booking Id",class: 'form-control'%>
+      <% if @feedback.booking.present?%>
+          <% if @feedback.booking.user_id==current_user.id%>
+            <%= f.label :ratings %>
+            <%= f.number_field :ratings ,in: 0.5..5.0, step: 0.5,class: 'form-control' %>
+
+            <%= f.label :comments %>
+            <%= f.text_field :comments ,class: 'form-control'%>
+          <% end %>
+      <%end%>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
