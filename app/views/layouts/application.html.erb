@@ -10,15 +10,11 @@
   </head>
 
   <body>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+  <% if !current_user.nil?%>
+  <%= render 'shared/navbar'%>
+  <% end %>
+    <div class = "container">
       <%= yield %>
-      <%#= debug(params) if Rails.env.development? %>
     </div>
-    <%#= yield %>
-    <%# <p class="notice"><%= notice %><%#/p> %>
-    <%# <p class="alert"><%= alert %><%#/p> %>
   </body>
 </html>

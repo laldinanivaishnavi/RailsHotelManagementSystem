@@ -1,16 +1,23 @@
 <header class="header">
 <h1>List Of Available Hotels</h1>
-<p class="first-p">
-  <%= link_to "Log out", logout_path, method: :delete %>
-</p>
 </header>
 <ul>
   <% @hotels.each do |hotel|%>
     <li>
       <%= hotel.name %>
+      <% if !admin? %>
       <%= link_to "View",hotels_path(hotel.id)%>
+      <% end %>
+      <% if admin? %>
+      <%= link_to "View",hotels_path(hotel.id)%>
+      <%= link_to "Modify",edit_hotel_path(hotel.id)%>
+      <%= link_to "Delete",delete_hotel_path(hotel.id),method: :delete, data: {confirm: "Are You Sure?" }%>
+      <% end %>
     </li>
   <% end %>
 </ul>
-
+<% if admin? %>
+  <%= link_to "Add Hotel",addhotels_path%>
+<% end %>
+<br>
 <%= link_to "Back", usersshow_path(@user.id)%>

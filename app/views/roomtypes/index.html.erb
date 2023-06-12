@@ -1,15 +1,24 @@
 <header class="header">
 <h1>List Of Available Roomtypes</h1>
-<p class="first-p">
-  <%= link_to "Log out", logout_path, method: :delete %>
-</p>
 </header>
 <ul>
   <% @roomtypes.each do |roomtype|%>
     <li>
       <%= roomtype.description %>
-      <%= link_to "View",roomtypes_path(roomtype.id)%>
+      <% if !admin? %>
+        <%= link_to "View",roomtypes_path(roomtype.id)%>
+      <% end %>
+      <% if admin? %>
+        <%= link_to "View",roomtypes_path(roomtype.id)%>
+        <%= link_to "Modify",edit_roomtype_path(roomtype.id)%>
+        <%= link_to "Delete",delete_roomtype_path(roomtype.id),method: :delete, data: {confirm: "Are You Sure?" }%>
+        (Hotel Id- <%=roomtype.hotel_id%>)
+      <% end %>
     </li>
   <% end %>
 </ul>
+<% if admin? %>
+  <%= link_to "Add RoomType",addroomtypes_path%>
+<% end %>
+<br>
 <%= link_to "Back", listhotels_path%>

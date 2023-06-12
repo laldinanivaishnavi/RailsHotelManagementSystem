@@ -1,0 +1,23 @@
+<h1 class="text-center">Edit Hotel</h1>
+
+<div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6">
+    <%= form_for @roomtype, url: edit_roomtype_path(@roomtype),method: :patch do |f| %>
+      <%= render 'shared/errors_msg' %>
+
+      <%= f.label :image %>
+      <%= f.file_field :image ,class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description ,class: 'form-control'%>
+
+      <%= f.label :facilities %>
+      <%= f.text_field :facilities ,class: 'form-control'%>
+      
+      <%= f.label :hotel_id %>
+      <%= f.number_field :hotel_id,in: 1..100 ,class: 'form-control'%>
+      <br>
+      <%= f.submit "Update Hotel", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div> 

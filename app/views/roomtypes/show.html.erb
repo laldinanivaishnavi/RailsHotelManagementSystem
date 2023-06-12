@@ -1,13 +1,16 @@
 <header class="header">
 <h1>Welcome to <%=@roomtype.description%> </h1>
-<p class="first-p">
-  <%= link_to "Log out", logout_path, method: :delete %>
-</p>
 </header>
 <h2>Details are as below:</h2>
-<p>Image: <%=@roomtype.image%></p>
+<%=image_tag @roomtype.image if @roomtype.image.attached?%>
 <p>Description: <%=@roomtype.description%></p>
 <p>Facilities: <%=@roomtype.facilities%></p>
 
+<% if admin? %>
+<p>Hotel Id: <%=@roomtype.hotel_id%></p>
+<% end %>
+<br>
 <%= link_to "Back", listroomtypes_path%>
+<% if !admin? %>
 <%= link_to "select & Proceed", allotroom_path(@selected_hotel,roomtype: @roomtype)%>
+<% end %>
